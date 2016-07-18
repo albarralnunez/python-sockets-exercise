@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+	
+{% block body %}
+	<form action="{% url form_action %}" method="POST" enctype="multipart/form-data">
+        <legend>Send File</legend>
+        {% csrf_token %}
+        {{ form_file|as_bootstrap }}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+    </form>
+{% endblock body %}

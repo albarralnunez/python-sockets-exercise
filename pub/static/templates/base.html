@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!--<link rel="icon" href="../favicon.ico"> -->
+
+        <!-- Bootstrap core CSS -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+        <title> Solver {% block title %}{% endblock title %}</title>
+    </head>
+
+    <body>
+  
+        <div class="container theme-showcase" role="main">
+            <div class="row">
+                <div class="col-md-4">
+                    {% block leftrow %}
+                    {% endblock leftrow %}
+                </div>
+                <div class="col-md-8">
+                    {% block body %}
+                    {% endblock body %}
+                </div>
+                <div class="col-md-8">
+	                {% block rightrow %}
+	                {% endblock rightrow %}
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            {% block footer %}
+            {% endblock footer %}
+        </footer>
+    </body>
+</html>
