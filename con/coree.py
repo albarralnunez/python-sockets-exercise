@@ -45,7 +45,6 @@ def main():
             logging.info('Finished')
         else:
             pp.new_process(True, True, logging, data)
-
     sock.close()
 
 if __name__ == "__main__":

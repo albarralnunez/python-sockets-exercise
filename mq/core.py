@@ -35,10 +35,16 @@ class MqHelper(ProcessHandler):
         ss = SocketServer(host='localhost', port=8887)
         ss.create()
         self.lg.info('Waiting sub')
-        ss.accept()
         while True:
-            data = self.tq.get()
-            ss.send(data)
+            ss.accept()
+            while True:
+                data = self.tq.get()
+                try:
+                    ss.send(data)
+                except:
+                    logging.warning('Connection with 8887 losed')
+                    self.tq.put(data)
+                    break
         ss.close()
 
 
@@ -57,11 +63,16 @@ class PubQueue(ProcessHandler):
         ss = SocketServer(host='localhost', port=9999)
         ss.create()
         self.lg.info('9999 Waiting connection...')
-        ss.accept()
         while True:
-            with open('res/results.txt', 'a') as outfile:
-                data = ss.recv()
-                outfile.write(data)
+            ss.accept()
+            while True:
+                with open('res/results.txt', 'a') as outfile:
+                    try:
+                        data = ss.recv()
+                        outfile.write(data)
+                    except:
+                        logging.warning('Connection with 9999 losed')
+                        break
         ss.close()
 
 

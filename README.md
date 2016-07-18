@@ -25,6 +25,9 @@
 *Below the approach of the proposed solution is explained.*
 
 The system consist in a publisher(pub), a message broker(mq) and one consumer(con).
-This architecture was chosen  to allow the consumer to solve the operations in a asynchronous way. We can send multiple files from the publisher, then the operations will be stored in the broker until the consumer is able to solved.
-When the broker solve one of the operations, the solution are send to the broker. The broker is in charge of store the results in a file named results.txt (`mq/res/results.txt`)
+This architecture was chosen  to allow the consumer to solve the operations in a asynchronous way. 
+
+We can send multiple files from the publisher, then the operations will be stored in the broker until the consumer is able to solved.
+
+When the broker solve one of the operations, the solution are sent to the broker. The broker is in charge of stroring the results in a file named results.txt (`mq/res/results.txt`)
 
