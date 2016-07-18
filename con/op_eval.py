@@ -22,7 +22,7 @@ def _eval(node):
     elif isinstance(node, ast.BinOp):  # <left> <operator> <right>
         return operators[type(node.op)](
             _eval(node.left), _eval(node.right))
-    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g., -1
+    elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g. -1
         return operators[type(node.op)](_eval(node.operand))
     else:
         raise TypeError(node)

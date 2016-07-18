@@ -20,12 +20,12 @@
 *The operations are in `mq/res/`*
 
 
-##Solution##
+##Solution Abstract##
 
 *Below the approach of the proposed solution is explained.*
 
 The system consist in a publisher(pub), a message broker(mq) and one consumer(con).
-This architecture was chosen  to allow the consumer to solve the operations in a asynchronous way. 
+This architecture was chosen  to allow the consumer to solve the operations in a asynchronous way and be able to have multiple publishers in the future.
 
 We can send multiple files from the publisher, then the operations will be stored in the broker until the consumer is able to solved.
 

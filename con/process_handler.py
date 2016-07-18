@@ -1,7 +1,7 @@
 from thread import *
 from multiprocessing import Process, Pipe
 import abc
-# import logging
+import logging
 from socket import socket
 
 
@@ -24,6 +24,7 @@ class ProcessPull():
     def _clean_process(self):
         for p in self.process_pull:
             if p.process.exitcode is not None:
+                # logging.info(str(p.process.pid) + 'cleaned')
                 if p.pipe:
                     a = p.parent_conn.recv()
                     self.handle_pipe(a)

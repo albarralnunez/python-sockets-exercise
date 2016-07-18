@@ -5,7 +5,8 @@ from thread import *
 import logging
 from op_eval import eval_expr
 from process_handler import ProcessHandler, ProcessPull
-
+from time import sleep
+import os
 # from time import sleep
 
 logging.basicConfig(
@@ -15,6 +16,7 @@ logging.basicConfig(
 
 
 class CustomProcesPull(ProcessPull):
+
     def handle_pipe(self, data):
         if data:
             data_len = '{0:04d}'.format(len(data))
@@ -26,7 +28,9 @@ class CustomProcesPull(ProcessPull):
 class Worker(ProcessHandler):
 
     def run(self, conn, lg, expr):
+        # pid = os.getpid()
         res = eval_expr(expr)
+        # lg.info(str(pid) + ': ' + res)
         conn.send('%s = %s\n' % (expr.replace('\n', ''), res))
 
 
