@@ -1,5 +1,7 @@
 import ast
 import operator as op
+import time
+
 
 # supported operators
 operators = {
@@ -24,8 +26,9 @@ def _eval(node):
             _eval(node.left), _eval(node.right))
     elif isinstance(node, ast.UnaryOp):  # <operator> <operand> e.g. -1
         return operators[type(node.op)](_eval(node.operand))
-    else:
-        raise TypeError(node)
 
-a = '1 + 2 - 3'
+
+a = '1 + 2 * 3 - 4 - 2 - 3 * 2 - 3323231232 * 312312 - 32312 / 312312312312312123 * 31231231 - 3123123123 / 3123123 - 2123123123 + 21321312312 * 3123123'
+ticks = time.time()
 print eval_expr(a)
+print time.time() - ticks
