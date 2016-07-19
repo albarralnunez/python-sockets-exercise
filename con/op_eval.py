@@ -28,7 +28,7 @@ def _eval(node):
         return operators[type(node.op)](_eval(node.operand))
 
 
-a = '1 + 2 * 3 - 4 - 2 - 3 * 2 - 3323231232 * 312312 - 32312 / 312312312312312123 * 31231231 - 3123123123 / 3123123 - 2123123123 + 21321312312 * 3123123'
-ticks = time.time()
-print eval_expr(a)
-print time.time() - ticks
+# a = '-1 - 3 * (-2 - 4)'
+# ticks = time.time()
+# print eval_expr(a)
+# print time.time() - ticks
