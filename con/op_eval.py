@@ -26,3 +26,6 @@ def _eval(node):
         return operators[type(node.op)](_eval(node.operand))
     else:
         raise TypeError(node)
+
+a = '1 + 2 - 3'
+print eval_expr(a)
