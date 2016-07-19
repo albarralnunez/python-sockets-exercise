@@ -3,10 +3,8 @@
 from socket import socket
 from thread import *
 import logging
-from op_eval import eval_expr
+from op_evalv2 import EvalExp
 from process_handler import ProcessHandler, ProcessPull
-from time import sleep
-import os
 # from time import sleep
 
 logging.basicConfig(
@@ -29,7 +27,7 @@ class Worker(ProcessHandler):
 
     def run(self, conn, lg, expr):
         # pid = os.getpid()
-        res = eval_expr(expr)
+        res = EvalExp(expr).eval()
         # lg.info(str(pid) + ': ' + res)
         conn.send('%s = %s\n' % (expr.replace('\n', ''), res))
 
