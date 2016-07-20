@@ -34,7 +34,7 @@ class EvalExp:
 
         # Note that right child is pushed first so that left
         # is processed first */
-        while(len(nodeStack) > 0):
+        while len(nodeStack) > 0:
 
             # Pop the top item from stack and print it
             node = nodeStack.pop()
@@ -43,7 +43,7 @@ class EvalExp:
                 len(res) > 1 and
                 isinstance(res[-1], ast.Num) and
                 isinstance(res[-2], ast.Num)
-            ):  # <number>
+            ):
                 n1 = res.pop()
                 n2 = res.pop()
                 op = res.pop()
@@ -56,8 +56,3 @@ class EvalExp:
                 nodeStack.append(node.right)
                 nodeStack.append(node.left)
         return res[0].n
-
-# a = '-1 - 3 * (-2 - 4)'
-# ticks = time.time()
-# print EvalExp(a).eval()
-# print time.time() - ticks
